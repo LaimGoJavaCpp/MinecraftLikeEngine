@@ -1,18 +1,26 @@
-#include "Grass.h"
+﻿#include "Grass.h"
 
 Grass::Grass()
 {
 	vao = new VAO();
 	vao->addVertexBufferObject({
-	0.0f,  0.5f, 0.0f,
-	-0.5f, -0.5f, 0.0f,
-	 0.5f, -0.5f, 0.0f,
+		{-0.5f,0.5f,0.0f},
+		{-0.5f,-0.5f, 0.0f},
+		{0.5f,0.5f, 0.0f},
+
+		{ 0.5f,0.5f,0.0f },
+		{-0.5f,-0.5f, 0.0f},
+		{0.5f,-0.5f, 0.0f},
 	});
 
 	vao->addVertexBufferObject({
-		{1.0f, 0.0f, 0.f, },
-		{ 0.0f, 1.0f, 0.0f, },
-		{ 0.0f, 0.0f, 1.0f }
+		{1.0f, 0.0f, 0.0f},  
+		{0.0f, 1.0f, 0.0f},  
+		{0.0f, 0.0f, 1.0f},  
+
+		{0.0f, 0.0f, 1.0f}, 
+		{0.0f, 1.0f, 0.0f},  
+		{1.0f, 0.0f, 0.0f}
 	});
 	shader = new Program("first");
 	shader->bindAttribute(0, "position");
@@ -24,7 +32,7 @@ Grass::Grass()
 
 void Grass::draw()
 {
-	anim += 0.001f;
+	anim += 0.0006f;
 	shader->setFloat("animation", glm::sin(anim) * 0.5f + 0.5f);
-	vao->draw(3);
+	vao->draw(6);
 }

@@ -7,6 +7,5 @@
 class Block : public RenderObject
 {
 protected:
-	Program* shader;
 	Texture* texture;
 };

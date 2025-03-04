@@ -13,6 +13,7 @@ public:
 	void bindAttribute(GLuint index, const std::string& name);
 	void setFloat(const std::string& name, float value);
 	GLuint getLocation(const std::string& name);
+	GLuint getProgram() { return program; }
 private:
 	GLuint program;
 	GLuint vertShader;
