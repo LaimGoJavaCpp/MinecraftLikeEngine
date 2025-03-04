@@ -15,9 +15,13 @@ void Game::Work()
 {
 	VAO triangle;
 	triangle.addVertexBufferObject({
-		0.0f, 5.0f,0.0f ,
-		-5.0f, -5.0f, 0.0f,
-		5.0f,  -5.0f, 0.0f,
+	-0.5f,  0.5f, 0.0f,  
+	-0.5f, -0.5f, 0.0f,  
+	 0.5f, -0.5f, 0.0f,  
+
+	 -0.5f,  0.5f, 0.0f,
+	  0.5f, -0.5f, 0.0f,
+	  0.5f,  0.5f, 0.0
 	});
 	
 	Program prog("first");
@@ -29,7 +33,7 @@ void Game::Work()
 	{
 		glClearColor(0, 0, 0, 1);
 		glClear(GL_COLOR_BUFFER_BIT);
-		triangle.draw(3);
+		triangle.draw(6);
 		glfwSwapBuffers(window->getWindow());
 		glfwPollEvents();
 	}

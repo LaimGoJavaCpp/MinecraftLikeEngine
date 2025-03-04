@@ -10,6 +10,7 @@ Window::Window(const char* title, int width, int height)
 		std::exit(-1);
 	}
 	glfwMakeContextCurrent(window);
+	glViewport(0,0,width,height);
 	Logger::log("window init");
 }
 
