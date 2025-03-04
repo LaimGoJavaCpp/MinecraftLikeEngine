@@ -14,25 +14,26 @@ Grass::Grass()
 	});
 
 	vao->addVertexBufferObject({
-		{1.0f, 0.0f, 0.0f},  
-		{0.0f, 1.0f, 0.0f},  
-		{0.0f, 0.0f, 1.0f},  
+		{0.0f, 1.0f}, 
+		{0.0f, 0.0f}, 
+		{1.0f, 1.0f}, 
 
-		{0.0f, 0.0f, 1.0f}, 
-		{0.0f, 1.0f, 0.0f},  
-		{1.0f, 0.0f, 0.0f}
+		{1.0f, 1.0f}, 
+		{0.0f, 0.0f}, 
+		{1.0f, 0.0f} 
 	});
-	shader = new Program("first");
+
+
+	shader = new Program("block");
 	shader->bindAttribute(0, "position");
-	shader->bindAttribute(1, "color");
+	shader->bindAttribute(1, "texCoord");
 	shader->link();
 	shader->use();
-	anim = 0;
+	texture = new Texture("dirt");
 }
 
 void Grass::draw()
 {
-	anim += 0.0006f;
-	shader->setFloat("animation", glm::sin(anim) * 0.5f + 0.5f);
+	texture->bind();
 	vao->draw(6);
 }

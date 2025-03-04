@@ -157,8 +157,8 @@
     <ClInclude Include="src\Render\Texture.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\shaders\first.frag" />
-    <None Include="res\shaders\first.vert" />
+    <None Include="res\shaders\block.frag" />
+    <None Include="res\shaders\block.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

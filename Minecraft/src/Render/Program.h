@@ -12,6 +12,7 @@ public:
 	void use();
 	void bindAttribute(GLuint index, const std::string& name);
 	void setFloat(const std::string& name, float value);
+	void setInt(const std::string& name, int value);
 	GLuint getLocation(const std::string& name);
 	GLuint getProgram() { return program; }
 private:
