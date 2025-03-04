@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Render.h"
 #include "GLFW.h"
 #include "Window.h"
 #include "GLEW.h"
@@ -17,6 +18,7 @@ private:
 	MyGLFW* glfw;
 	Window* window;
 	MyGLEW* glew;
+	Render* render;
 
 	string version;
 	string gameAuthors[1];

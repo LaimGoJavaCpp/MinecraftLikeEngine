@@ -11,6 +11,8 @@ public:
 	void link();
 	void use();
 	void bindAttribute(GLuint index, const std::string& name);
+	void setFloat(const std::string& name, float value);
+	GLuint getLocation(const std::string& name);
 private:
 	GLuint program;
 	GLuint vertShader;

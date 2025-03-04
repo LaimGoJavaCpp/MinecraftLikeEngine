@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)libs\glfw\include\;$(ProjectDir)libs\glew\include\;$(ProjectDir)src\Utils\;$(ProjectDir)src\Render\;$(ProjectDir)src\OnlyHeaderLibs\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)libs\glfw\include\;$(ProjectDir)libs\glew\include\;$(ProjectDir)src\Utils\;$(ProjectDir)src\Render\;$(ProjectDir)src\OnlyHeaderLibs\;$(PprojectDir)src\Game\Bloks\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,6 +130,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Game\Bloks\Grass.cpp" />
+    <ClCompile Include="src\Render\Render.cpp" />
     <ClCompile Include="src\Render\Program.cpp" />
     <ClCompile Include="src\Render\GLEW.cpp" />
     <ClCompile Include="src\Render\GLFW.cpp" />
@@ -138,8 +140,13 @@
     <ClCompile Include="src\Game\main.cpp" />
     <ClCompile Include="src\Render\Window.cpp" />
     <ClCompile Include="src\Render\VAO.cpp" />
+    <ClCompile Include="src\Render\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Game\Bloks\Block.h" />
+    <ClInclude Include="src\Game\Bloks\Grass.h" />
+    <ClInclude Include="src\Render\RenderObject.h" />
+    <ClInclude Include="src\Render\Render.h" />
     <ClInclude Include="src\Render\Program.h" />
     <ClInclude Include="src\Render\GLEW.h" />
     <ClInclude Include="src\Render\GLFW.h" />
@@ -147,6 +154,7 @@
     <ClInclude Include="src\Game\Game.h" />
     <ClInclude Include="src\Render\Window.h" />
     <ClInclude Include="src\Render\VAO.h" />
+    <ClInclude Include="src\Render\Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\first.frag" />

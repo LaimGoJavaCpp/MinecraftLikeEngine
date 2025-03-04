@@ -33,6 +33,16 @@ void Program::bindAttribute(GLuint index, const std::string& name)
 	glBindAttribLocation(program, index, name.c_str());
 }
 
+void Program::setFloat(const std::string& name, float value)
+{
+	glUniform1f(getLocation(name),value);
+}
+
+GLuint Program::getLocation(const std::string& name)
+{
+	return glGetUniformLocation(program,name.c_str());
+}
+
 GLuint Program::loadShader(const std::string& path, GLenum shaderType)
 {
 	GLuint shader = glCreateShader(shaderType);

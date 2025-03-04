@@ -9,6 +9,9 @@
     <ClCompile Include="src\Render\GLEW.cpp" />
     <ClCompile Include="src\Render\VAO.cpp" />
     <ClCompile Include="src\Render\Program.cpp" />
+    <ClCompile Include="src\Render\Render.cpp" />
+    <ClCompile Include="src\Render\Texture.cpp" />
+    <ClCompile Include="src\Game\Bloks\Grass.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game\Game.h" />
@@ -18,6 +21,11 @@
     <ClInclude Include="src\Render\GLEW.h" />
     <ClInclude Include="src\Render\VAO.h" />
     <ClInclude Include="src\Render\Program.h" />
+    <ClInclude Include="src\Render\Render.h" />
+    <ClInclude Include="src\Render\RenderObject.h" />
+    <ClInclude Include="src\Game\Bloks\Block.h" />
+    <ClInclude Include="src\Render\Texture.h" />
+    <ClInclude Include="src\Game\Bloks\Grass.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\first.vert" />
