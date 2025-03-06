@@ -6,7 +6,7 @@
 class Window
 {
 public:
-	Window(const char* title, int width, int height);
+	Window(const char* title);
 	~Window();
 	GLFWwindow* getWindow() { return window; }
 	int getWidth() { return width; }

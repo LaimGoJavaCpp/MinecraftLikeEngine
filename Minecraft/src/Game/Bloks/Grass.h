@@ -7,6 +7,4 @@ class Grass : public Block
 public:
 	Grass();
 	void draw() override;
-private:
-	float anim;
 };

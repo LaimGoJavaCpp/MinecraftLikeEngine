@@ -6,7 +6,7 @@
 Game::Game()
 {
 	glfw = new MyGLFW();
-	window = new Window("Minecraft",640,480);
+	window = new Window("Minecraft");
 	glew = new MyGLEW();	
 	render = new Render(window);
 	version = "alpha 0.1.0";

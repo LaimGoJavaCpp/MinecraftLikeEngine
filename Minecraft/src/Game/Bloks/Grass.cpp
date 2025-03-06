@@ -60,5 +60,5 @@ void Grass::draw()
 {
     shader->use();
     texture->bind(); 
-    vao->draw(36);                 
+    vao->draw(36);
 }

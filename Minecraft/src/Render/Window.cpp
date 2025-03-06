@@ -1,16 +1,18 @@
 #include "Window.h"
 
-Window::Window(const char* title, int width, int height)
+Window::Window(const char* title)
 {
-	this->width = width;
-	this->height = height;
-	window = glfwCreateWindow(this->width, this->height,title,NULL,NULL);
+	const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
+	width = mode->width;
+	height = mode->height;
+	
+	window = glfwCreateWindow(mode->width, mode->height, "Minecraft", glfwGetPrimaryMonitor(), nullptr);
 	if (!window) {
 		Logger::log("Window not init!");
 		std::exit(-1);
 	}
 	glfwMakeContextCurrent(window);
-	glViewport(0,0,width,height);
+	glViewport(0,0, mode->width,mode->height);
 	Logger::log("window init");
 }
 

@@ -12,6 +12,7 @@
     <ClCompile Include="src\Render\Render.cpp" />
     <ClCompile Include="src\Render\Texture.cpp" />
     <ClCompile Include="src\Game\Bloks\Grass.cpp" />
+    <ClCompile Include="src\Render\Camera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game\Game.h" />
@@ -26,6 +27,7 @@
     <ClInclude Include="src\Game\Bloks\Block.h" />
     <ClInclude Include="src\Render\Texture.h" />
     <ClInclude Include="src\Game\Bloks\Grass.h" />
+    <ClInclude Include="src\Render\Camera.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\block.vert" />
