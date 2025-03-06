@@ -10,7 +10,6 @@ VAO::~VAO()
 {
 	glDeleteVertexArrays(1, &vao);
 	glDeleteBuffers(buffers.size(), buffers.data());
-	glDeleteBuffers(1, &indicesBuffer);
 }   
 
 void VAO::bind()
@@ -18,7 +17,7 @@ void VAO::bind()
 	glBindVertexArray(vao);
 }
 
-void VAO::draw(unsigned type = 0x0004)
+void VAO::draw(size_t count)
 {
 	bind();
 	for (size_t i = 0; i < buffers.size(); ++i)
@@ -26,8 +25,7 @@ void VAO::draw(unsigned type = 0x0004)
 		glEnableVertexAttribArray(i);
 	}
 
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indicesBuffer);
-	glDrawElements(type, indicesCount, GL_UNSIGNED_INT, nullptr);
+	glDrawArrays(GL_TRIANGLES,0,count);
 
 	for (size_t i = 0; i < buffers.size(); ++i)
 	{
@@ -73,13 +71,4 @@ void VAO::addVertexBufferObject(const std::vector<glm::vec4>& data)
 	glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(glm::vec4), data.data(), GL_STATIC_DRAW);
 	glVertexAttribPointer(buffers.size(), 4, GL_FLOAT, GL_FALSE, 0, nullptr);
 	buffers.push_back(vbo);
-}
-
-void VAO::addIndices(const std::vector<unsigned>& data)
-{
-	indicesCount = data.size();
-
-	glGenBuffers(1, &indicesBuffer);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indicesBuffer);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, data.size() * sizeof(unsigned), data.data(), GL_STATIC_DRAW);
 }
