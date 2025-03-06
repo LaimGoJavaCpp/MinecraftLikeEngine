@@ -72,3 +72,18 @@ void VAO::addVertexBufferObject(const std::vector<glm::vec4>& data)
 	glVertexAttribPointer(buffers.size(), 4, GL_FLOAT, GL_FALSE, 0, nullptr);
 	buffers.push_back(vbo);
 }
+
+void VAO::addMixedVertexBufferObject(const std::vector<float>& data)
+{
+	GLuint vbo;
+	glGenBuffers(1, &vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(float), data.data(), GL_STATIC_DRAW);
+
+	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 5, nullptr);
+	const uint32_t offset = sizeof(float) * 3;
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 5, reinterpret_cast<void*>(offset));
+	buffers.push_back(vbo);
+}

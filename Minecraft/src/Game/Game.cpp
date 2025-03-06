@@ -17,6 +17,9 @@ void Game::Work()
 {
 	Grass* grass = new Grass();
 	render->addRenderObject(grass);
+
+	glEnable(GL_DEPTH_TEST);
+
 	while (!glfwWindowShouldClose(window->getWindow()))
 	{
 		render->Draw();

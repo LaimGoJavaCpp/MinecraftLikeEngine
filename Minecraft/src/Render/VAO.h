@@ -15,6 +15,7 @@ public:
 	void addVertexBufferObject(const std::vector<glm::vec2>& data);
 	void addVertexBufferObject(const std::vector<glm::vec3>& data);
 	void addVertexBufferObject(const std::vector<glm::vec4>& data);
+	void addMixedVertexBufferObject(const std::vector<float>& data);
 private:
 	GLuint vao;
 	std::vector<GLuint> buffers;
