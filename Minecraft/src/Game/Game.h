@@ -4,6 +4,8 @@
 #include "GLFW.h"
 #include "Window.h"
 #include "GLEW.h"
+#include "Camera.h"
+#include "InputKeyboard.h"
 
 #include <string>
 
@@ -12,14 +14,19 @@ using namespace std;
 class Game
 {
 public:
-	Game();
-	void Work();
+    Game();
+    void Work();
 private:
-	MyGLFW* glfw;
-	Window* window;
-	MyGLEW* glew;
-	Render* render;
+    void InputKeyBoardProcces();
 
-	string version;
-	string gameAuthors[1];
+    MyGLFW* glfw;
+    Window* window;
+    MyGLEW* glew;
+    Render* render;
+    Camera* camera;
+    InputKeyboard* keyboard;
+
+    string version;
+    string gameAuthors[1];
+    float lastFrame = 0.0f;
 };

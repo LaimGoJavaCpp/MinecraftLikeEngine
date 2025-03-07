@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)libs\glfw\include\;$(ProjectDir)libs\glew\include\;$(ProjectDir)src\Utils\;$(ProjectDir)src\Render\;$(ProjectDir)src\OnlyHeaderLibs\;$(PprojectDir)src\Game\Bloks\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)libs\glfw\include\;$(ProjectDir)libs\glew\include\;$(ProjectDir)src\Utils\;$(ProjectDir)src\Render\;$(ProjectDir)src\OnlyHeaderLibs\;$(PprojectDir)src\Game\Bloks\;$(ProjectDir)src\Input\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,6 +130,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Game\Bloks\Badapple.cpp" />
+    <ClCompile Include="src\Game\Bloks\Dirt.cpp" />
+    <ClCompile Include="src\Input\InputKeyboard.cpp" />
     <ClCompile Include="src\Render\Camera.cpp" />
     <ClCompile Include="src\Game\Bloks\Grass.cpp" />
     <ClCompile Include="src\Render\Render.cpp" />
@@ -144,7 +147,10 @@
     <ClCompile Include="src\Render\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Render\Camera.hpp" />
+    <ClInclude Include="src\Game\Bloks\Badapple.h" />
+    <ClInclude Include="src\Game\Bloks\Dirt.h" />
+    <ClInclude Include="src\Input\InputKeyboard.h" />
+    <ClInclude Include="src\Render\Camera.h" />
     <ClInclude Include="src\Game\Bloks\Block.h" />
     <ClInclude Include="src\Game\Bloks\Grass.h" />
     <ClInclude Include="src\Render\RenderObject.h" />

@@ -1,30 +1,36 @@
-#include "Render.h"
-
+﻿#include "Render.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
 using namespace glm;
 
-Render::Render(Window* window)
+Render::Render(Window* window, Camera* camera)
 {
-	this->window = window;
+    this->window = window;
+    this->camera = camera;
 }
 
 void Render::Draw()
 {
-    float aspect = static_cast<float>(window->getWidth()) / static_cast<float>(window->getHeight());
-    glm::mat4 projection = glm::ortho(-aspect, aspect, -1.0f, 1.0f);
-
-    glClearColor(0.53f, 0.81f, 0.92f, 1.0f); 
+    glClearColor(0.53f, 0.81f, 0.92f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    for (auto& obj : renderObjects)
-    {
-        obj->draw();
-        glm::mat4 mvp = projection * obj->getModelMatrix();
+    glm::mat4 view = camera->getViewMatrix();
+    glm::mat4 projection = glm::perspective(glm::radians(45.0f),
+        (float)window->getWidth() / (float)window->getHeight(),
+        0.1f, 100.0f);
 
-        GLuint modelLoc = glGetUniformLocation(obj->getShader()->getProgram(), "modelMatrix");
-        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, &mvp[0][0]);
+    for (size_t i = 0; i < renderObjects.size(); ++i)
+    {
+        glm::mat4 model = renderObjects.at(i)->getModelMatrix(); 
+        glm::mat4 mvp = projection * view * model;  
+
+        GLuint mvpLoc = glGetUniformLocation(renderObjects.at(i)->getShader()->getProgram(), "MVP");
+        if (mvpLoc != -1) {
+            glUniformMatrix4fv(mvpLoc, 1, GL_FALSE, &mvp[0][0]);
+        }
+
+        renderObjects.at(i)->draw();
     }
 
     glfwSwapBuffers(window->getWindow());

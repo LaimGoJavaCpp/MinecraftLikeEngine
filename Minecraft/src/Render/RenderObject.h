@@ -9,8 +9,11 @@ class RenderObject
 {
 public:
     RenderObject()
-        : position(0.0f), rotation(0.0f), scale(1.0f), modelMatrix(1.0f) {
-    }
+        : position(0.0f),
+        rotation(0.0f),
+        scale(1.0f),
+        modelMatrix(1.0f)
+    {}
 
     virtual void draw() = 0;
     Program* getShader() { return shader; }
@@ -33,7 +36,7 @@ protected:
     {
         modelMatrix = glm::mat4(1.0f);
         modelMatrix = glm::translate(modelMatrix, position);
-        modelMatrix = glm::rotate(modelMatrix, glm::radians(rotation), glm::vec3(0.0f, 0.0f, 1.0f)); // Вращение вокруг Z
+        modelMatrix = glm::rotate(modelMatrix, glm::radians(rotation), glm::vec3(0.0f, 0.0f, 1.0f)); 
         modelMatrix = glm::scale(modelMatrix, scale);
     }
 };

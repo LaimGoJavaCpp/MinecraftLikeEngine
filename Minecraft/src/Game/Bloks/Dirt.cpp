@@ -1,6 +1,8 @@
-﻿#include "Dirt.h"
+#include "Dirt.h"
 
-Dirt::Dirt()
+#include "Grass.h"
+
+Grass::Grass()
 {
     vao = new VAO();
 
@@ -46,20 +48,19 @@ Dirt::Dirt()
         0.5f, 0.5f, 0.5f, 1.0f, 0.0f,
         -0.5f, 0.5f, 0.5f, 0.0f, 0.0f,
         -0.5f, 0.5f, -0.5f, 0.0f, 1.0f
-});
+        });
 
     shader = new Program("block");
     shader->bindAttribute(0, "position");
     shader->bindAttribute(1, "texCoord");
     shader->link();
     shader->use();
-    texture = new Texture("grass");
-    this->setPosition({ -1.2f,0.0f,0.0f });
+    texture = new Texture("dirt");
 }
 
-void Dirt::draw()
+void Grass::draw()
 {
     shader->use();
-    texture->bind(); 
+    texture->bind();
     vao->draw(36);
 }
